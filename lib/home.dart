@@ -20,17 +20,18 @@ class _HomePageState extends State<HomePage> {
           title: const Text('Translation'),
         ),
         body: Card(
+          color: Colors.black12,
           margin: const EdgeInsets.all(12),
           child: ListView(
             padding: const EdgeInsets.all(20),
             children: [
-              const Text('Türkçe İngilizce Sözlük'),
+              const Text('Türkçe İngilizce Sözlük', style: TextStyle(color: Colors.white70),),
               const SizedBox(
                 height: 8,
               ),
               TextField(
                 style:
-                    const TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
+                    const TextStyle(fontSize: 36, fontWeight: FontWeight.bold, color: Colors.white60),
                 decoration: const InputDecoration(hintText: 'Enter text'),
                 onChanged: (text) async {
 
@@ -64,7 +65,7 @@ class _HomePageState extends State<HomePage> {
                 translated,
                 style: const TextStyle(
                     fontSize: 36,
-                    color: Colors.blueGrey,
+                    color: Colors.white70,
                     fontWeight: FontWeight.bold),
               )
             ],
