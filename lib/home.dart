@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:translator/translator.dart';
+import 'package:http/http.dart' as http;
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -21,7 +24,7 @@ class _HomePageState extends State<HomePage> {
           child: ListView(
             padding: const EdgeInsets.all(20),
             children: [
-              const Text('English (US)'),
+              const Text('Türkçe İngilizce Sözlük'),
               const SizedBox(
                 height: 8,
               ),
@@ -30,11 +33,28 @@ class _HomePageState extends State<HomePage> {
                     const TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
                 decoration: const InputDecoration(hintText: 'Enter text'),
                 onChanged: (text) async {
-                  
-                final translation=  await text.translate(from: 'en', to: 'es');
-                setState(() {
-                  translated=translation.text;
-                });
+
+                /*  const apiKey = '';
+                  const to = 'tr';
+                  final url = Uri.parse('');
+
+                  final response = await http.post(url);
+                  if (response.statusCode == 200) {
+                    final body = json.decode(response.body);
+                    final translation = HtmlUnescape()
+                        .convert(translations.first['translatedText']);
+                    await text.translate(from: 'en', to: 'tr');
+                    setState(() {
+                      translated = translation.text;
+                    });
+                  }*/
+
+                final translation=  await text.translate(from: 'tr', to: 'en');
+
+                  setState(() {
+                    translated = translation.text;
+                  });
+
                 },
               ),
               const Divider(
@@ -44,7 +64,7 @@ class _HomePageState extends State<HomePage> {
                 translated,
                 style: const TextStyle(
                     fontSize: 36,
-                    color: Colors.lightBlueAccent,
+                    color: Colors.blueGrey,
                     fontWeight: FontWeight.bold),
               )
             ],
